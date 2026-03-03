@@ -14,20 +14,26 @@ const president = {
   image: '/images/officers/president-pic.jpg',
 }
 
-  const vicePresidents = [
-    {
-      name: 'Sarah Chen',
-      role: 'Vice President - Projects',
-      major: 'Aerospace Engineering',
-      bio: 'Leading our project teams with expertise in CAD and manufacturing'
-    },
-    {
-      name: 'Marcus Williams',
-      role: 'Vice President - Operations',
-      major: 'Industrial Engineering',
-      bio: 'Organizing events and managing club operations with precision'
-    }
-  ]
+ const vicePresidents = [
+  {
+    name: 'William LeBris',
+    role: 'Co-President',
+    major: 'Mechanical Engineering',
+    bio: 'Passionate about robotics and sustainable engineering solutions',
+    vision: 'I created this club to bring together students who share a passion for engineering and innovation.',
+    motivation: 'Every time I see a club member succeed, I\'m reminded why I started this journey.',
+    image: '/images/officers/william.jpg',
+  },
+  {
+    name: 'Harsheet Patel',
+    role: 'Co-President',
+    major: 'Mechanical Engineering',
+    bio: 'Dedicated to building an inclusive engineering community',
+    vision: 'Leading ASME means creating opportunities for every student to excel in engineering.',
+    motivation: 'Seeing our members grow and achieve their goals drives me every day.',
+    image: '/images/officers/harsheet.jpg',
+  }
+]
 
   const officers = [
     {

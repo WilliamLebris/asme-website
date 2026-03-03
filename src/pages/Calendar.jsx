@@ -8,52 +8,115 @@ const Calendar = () => {
   const [view, setView] = useState('month') // 'day', 'week', 'month'
   const [selectedEvent, setSelectedEvent] = useState(null)
 
-  // Sample events - You can replace this with actual data
+  // Spring 2026 Events
   const events = [
     {
       id: 1,
-      title: 'Weekly Club Meeting',
-      date: new Date(2026, 0, 14),
-      time: '3:00 PM - 5:00 PM',
-      location: 'Room 245, Engineering Building',
-      description: 'Regular weekly meeting to discuss ongoing projects and plan upcoming events.',
+      title: 'First Meeting',
+      date: new Date(2026, 0, 27),
+      time: '12:30 PM - 1:30 PM',
+      location: 'Physics Room 510',
+      description: 'Kickoff meeting for Spring 2026 semester. Meet the team and learn about upcoming projects!',
       type: 'meeting'
     },
     {
       id: 2,
-      title: '3D Printing Workshop',
-      date: new Date(2026, 0, 16),
-      time: '2:00 PM - 4:00 PM',
-      location: 'Makerspace Lab',
-      description: 'Learn the fundamentals of 3D printing, from design to final product.',
-      type: 'workshop'
+      title: 'Movie Night: The Wind Rises',
+      date: new Date(2026, 0, 29),
+      time: 'TBA',
+      location: 'Theater (TBA)',
+      description: 'Screening of The Wind Rises. Food provided thanks to our secured grant!',
+      type: 'social'
     },
     {
       id: 3,
-      title: 'Industry Tour - Tesla Factory',
-      date: new Date(2026, 0, 20),
-      time: '10:00 AM - 2:00 PM',
-      location: 'Fremont, CA',
-      description: 'Exclusive tour of Tesla manufacturing facility. Transportation provided.',
-      type: 'tour'
+      title: 'Hestus Event',
+      date: new Date(2026, 1, 6),
+      time: 'TBA',
+      location: 'TBA',
+      description: 'Special collaboration event. Contact Sohrab for details.',
+      type: 'workshop'
     },
     {
       id: 4,
-      title: 'Weekly Club Meeting',
-      date: new Date(2026, 0, 21),
-      time: '3:00 PM - 5:00 PM',
-      location: 'Room 245, Engineering Building',
-      description: 'Regular weekly meeting to discuss ongoing projects and plan upcoming events.',
-      type: 'meeting'
+      title: 'CAD Workshop',
+      date: new Date(2026, 1, 7),
+      time: 'TBA',
+      location: 'Engineering Lab',
+      description: 'Learn Computer-Aided Design from experienced members. Perfect for beginners!',
+      type: 'workshop'
     },
     {
       id: 5,
-      title: 'Robot Competition Prep',
-      date: new Date(2026, 0, 23),
-      time: '4:00 PM - 7:00 PM',
-      location: 'Robotics Lab',
-      description: 'Final preparations for the regional robotics competition.',
-      type: 'project'
+      title: 'Second Meeting',
+      date: new Date(2026, 1, 9),
+      time: '12:30 PM - 1:30 PM',
+      location: 'Physics Room 510',
+      description: 'Regular club meeting to discuss ongoing projects and plan upcoming events.',
+      type: 'meeting'
+    },
+    {
+      id: 6,
+      title: 'Club Rush',
+      date: new Date(2026, 1, 16),
+      time: 'TBA',
+      location: 'Campus Center',
+      description: 'Come meet us at Club Rush! Learn about ASME and sign up to join.',
+      type: 'social'
+    },
+    {
+      id: 7,
+      title: 'LinkedIn Workshop',
+      date: new Date(2026, 1, 16),
+      time: 'TBA',
+      location: 'TBA',
+      description: 'Build your professional presence! Optimize your LinkedIn profile. Co-led by Nathan.',
+      type: 'workshop'
+    },
+    {
+      id: 8,
+      title: 'Lab Research Workshop',
+      date: new Date(2026, 1, 17),
+      time: 'TBA',
+      location: 'TBA',
+      description: 'Discover research opportunities and how to get involved. Co-led by Nathan.',
+      type: 'workshop'
+    },
+    {
+      id: 9,
+      title: 'Third Meeting',
+      date: new Date(2026, 1, 23),
+      time: '12:30 PM - 1:30 PM',
+      location: 'Physics Room 510',
+      description: 'Regular club meeting with project updates and team collaboration.',
+      type: 'meeting'
+    },
+    {
+      id: 10,
+      title: 'Stanford Collaboration Event',
+      date: new Date(2026, 2, 11),
+      time: 'TBA',
+      location: 'Stanford University',
+      description: 'Exciting collaboration with Stanford! Everyone welcome. Coordinate with Aleida.',
+      type: 'tour'
+    },
+    {
+      id: 11,
+      title: 'CADathon',
+      date: new Date(2026, 2, 20),
+      time: 'TBA',
+      location: 'Engineering Lab',
+      description: 'Design competition! Create innovative CAD models with your team. 3D printer available!',
+      type: 'competition'
+    },
+    {
+      id: 12,
+      title: 'Cross-Enrollment Event',
+      date: new Date(2026, 3, 27),
+      time: 'TBA',
+      location: 'TBA',
+      description: 'Learn about cross-enrollment opportunities. Deadline to apply is April 27!',
+      type: 'workshop'
     }
   ]
 
@@ -107,7 +170,8 @@ const Calendar = () => {
     meeting: 'from-blue-500 to-blue-600',
     workshop: 'from-purple-500 to-purple-600',
     tour: 'from-green-500 to-green-600',
-    project: 'from-amber-500 to-amber-600'
+    social: 'from-pink-500 to-pink-600',
+    competition: 'from-red-500 to-red-600'
   }
 
   return (
@@ -141,6 +205,24 @@ const Calendar = () => {
       {/* Calendar Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Add All Events Button */}
+          <div className="mb-8 text-center">
+            <motion.button
+              onClick={() => {
+                events.forEach(event => addToGoogleCalendar(event))
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-3 bg-gradient-to-r from-asme-blue to-bcc-gold text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <Plus className="w-6 h-6" />
+              <span>Add All Events to My Calendar</span>
+            </motion.button>
+            <p className="mt-3 text-gray-600 text-sm">
+              Sync all {events.length} Spring 2026 events to your Google Calendar
+            </p>
+          </div>
+
           {/* Controls */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
             <div className="flex items-center space-x-4">

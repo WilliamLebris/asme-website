@@ -48,6 +48,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Logo Section */}
+            
             {/* Logo Section */}
             {/* <div className="flex justify-center items-center space-x-3 mb-6">
               <motion.div
@@ -74,19 +75,16 @@ const Home = () => {
                 />
               </motion.div>
             </div> */}
+            {/* Logo Section - Static */}
             <div className="flex justify-center items-center mb-6">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center shadow-2xl overflow-hidden"
-            >
-              <img
-                src="/images/bcc-mech.png"   // from public/images
-                alt="BCC Mechanical"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
+                <img
+                  src="/images/bcc-mech.png"
+                  alt="ASME Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
 
 
             
@@ -106,7 +104,7 @@ const Home = () => {
             >
               Where Innovation Meets Engineering Excellence
             </motion.p>
-
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -222,9 +220,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: '20+', label: 'Active Members' },
-              { number: '15+', label: 'Projects Completed' },
-              { number: '50+', label: 'Events Per Year' },
+              { number: '30+', label: 'Active Members' },
+              { number: '20+', label: 'Events Per Year' },
               { number: '100%', label: 'Passion Driven' },
             ].map((stat, index) => (
               <AnimatedSection key={stat.label} delay={index * 0.1}>

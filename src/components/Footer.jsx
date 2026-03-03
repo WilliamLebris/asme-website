@@ -35,6 +35,7 @@ const Footer = () => {
     { name: 'About ASME', path: '/about' },
     { name: 'Our Officers', path: '/officers' },
     { name: 'Projects', path: '/projects' },
+    { name: 'Events', path: '/events' }, // Changed
     { name: 'Calendar', path: '/calendar' },
     { name: 'Join Us', path: '/join-us' },
   ]

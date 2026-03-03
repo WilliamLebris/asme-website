@@ -29,6 +29,7 @@ const Navbar = () => {
       ]
     },
     { name: 'Projects', path: '/projects' },
+    { name: 'Events', path: '/events' },
     { name: 'Calendar', path: '/calendar' },
     { name: 'Why Join?', path: '/why-join' },
   ]
